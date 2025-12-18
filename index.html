@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imzahar</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #1a0b2e 0%, #4a148c 50%, #1a237e 100%);
+            color: white;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        p {
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        /* Header */
+        header {
+            background: rgba(58, 12, 94, 0.3);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(167, 139, 250, 0.3);
+        }
+
+        .header-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: white;
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #8b5cf6 0%, #9333ea 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .logo-text {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        nav {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #c4b5fd;
+        }
+
+        .menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+        }
+
+        .hero-card {
+            background: linear-gradient(135deg, rgba(109, 40, 217, 0.4) 0%, rgba(112, 26, 117, 0.4) 100%);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            padding: 3rem 2rem;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(167, 139, 250, 0.3);
+        }
+
+        .hero-title {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-description {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+        }
+
+        .hero-description p {
+            margin-bottom: 1rem;
+            color: #ddd6fe;
+        }
+
+        .hero-description p:last-child {
+            color: #c4b5fd;
+            margin-bottom: 0;
+        }
+
+        /* Action Grid */
+        .action-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .action-card {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.4) 0%, rgba(147, 51, 234, 0.4) 100%);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 1rem;
+            border: 1px solid rgba(167, 139, 250, 0.3);
+            text-decoration: none;
+            color: #e9d5ff;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: all 0.3s ease;
+        }
+
+        .action-card:hover {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.5) 0%, rgba(147, 51, 234, 0.5) 100%);
+            border-color: rgba(167, 139, 250, 0.5);
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.2);
+            color: white;
+        }
+
+        .action-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            background: rgba(139, 92, 246, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            transition: background 0.3s;
+        }
+
+        .action-card:hover .action-icon {
+            background: rgba(139, 92, 246, 0.4);
+        }
+
+        /* Latest Content */
+        .latest-section {
+            text-align: center;
+        }
+
+        .latest-content {
+            background: rgba(76, 29, 149, 0.5);
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid rgba(167, 139, 250, 0.3);
+        }
+
+        .latest-content p {
+            color: #c4b5fd;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(139, 92, 246, 0.4);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: white;
+            border: 1px solid rgba(167, 139, 250, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: rgba(139, 92, 246, 0.6);
+            border-color: rgba(167, 139, 250, 0.5);
+            transform: scale(1.1);
+        }
+
+        .copyright {
+            color: #a78bfa;
+        }
+
+        /* Mobile Menu */
+        .mobile-nav {
+            display: none;
+            flex-direction: column;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(58, 12, 94, 0.5);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(167, 139, 250, 0.3);
+        }
+
+        .mobile-nav.active {
+            display: flex;
+        }
+
+        .mobile-nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.75rem;
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+
+        .mobile-nav a:hover {
+            background: rgba(139, 92, 246, 0.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .hero-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .action-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">💼</div>
+                <span class="logo-text">Imzahar</span>
+            </a>
+            <nav id="desktop-nav">
+                <a href="#">Главная</a>
+                <a href="#">Проекты</a>
+                <a href="#">Блог</a>
+                <a href="#">Контакты</a>
+            </nav>
+            <button class="menu-btn" id="menuBtn">☰</button>
+        </div>
+        <div class="mobile-nav" id="mobileNav">
+            <a href="#">Главная</a>
+            <a href="#">Проекты</a>
+            <a href="#">Блог</a>
+            <a href="#">Контакты</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="hero-card">
+            <h1 class="hero-title">Добро пожаловать в мое персональное пространство!</h1>
+            
+            <div class="hero-description">
+                <p>Это мой личный сайт для удобного доступа к проектам, ресурсам и инструментам.</p>
+                <p>Здесь вы найдете ссылки на мои работы, полезные материалы и способы связи со мной. Добавьте сайт в закладки для быстрого доступа!</p>
+            </div>
+
+            <!-- Action Grid -->
+            <div class="action-grid">
+                <a href="#" class="action-card">
+                    <div class="action-icon">📁</div>
+                    <span>Мои проекты</span>
+                </a>
+                <a href="#" class="action-card">
+                    <div class="action-icon">💿</div>
+                    <span>Мои образы</span>
+                </a>
+                <a href="#" class="action-card">
+                    <div class="action-icon">🪟</div>
+                    <span>Оригинальные образы Windows</span>
+                </a>
+                <a href="#" class="action-card">
+                    <div class="action-icon">📚</div>
+                    <span>Блог</span>
+                </a>
+                <a href="#" class="action-card">
+                    <div class="action-icon">📺</div>
+                    <span>YouTube канал</span>
+                </a>
+                <a href="#" class="action-card">
+                    <div class="action-icon">✉️</div>
+                    <span>Связаться со мной</span>
+                </a>
+                <a href="#" class="action-card">
+                    <div class="action-icon">👥</div>
+                    <span>VK сообщество</span>
+                </a>
+            </div>
+
+            <!-- Latest Content Section -->
+            <div class="latest-section">
+                <h2>Последние обновления</h2>
+                <div class="latest-content">
+                    <p>Скоро здесь появится контент...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <div class="social-links">
+                <a href="#" class="social-link">𝕏</a>
+                <a href="#" class="social-link">▶️</a>
+                <a href="#" class="social-link">🐙</a>
+                <a href="#" class="social-link">💼</a>
+            </div>
+            <p class="copyright">© 2025 Imzahar</p>
+        </footer>
+    </main>
+
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileNav = document.getElementById('mobileNav');
+
+        menuBtn.addEventListener('click', () => {
+            mobileNav.classList.toggle('active');
+            menuBtn.textContent = mobileNav.classList.contains('active') ? '✕' : '☰';
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe action cards for animation
+        document.querySelectorAll('.action-card').forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = `all 0.5s ease ${index * 0.1}s`;
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
