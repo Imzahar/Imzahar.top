@@ -1,6 +1,6 @@
 import { Menu, Mail, Youtube, Code, Folder, Disc, Users, BookOpen } from 'lucide-react';
 import { Button } from './components/ui/button';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { HashRouter, Routes, Route, Link } from 'react-router-dom';
 import ProjectPage from './components/ProjectPage';
 import MyIsoPage from './components/MyIsoPage';
 import WindowsIsoPage from './components/WindowsIsoPage';
@@ -9,7 +9,7 @@ import Header from './components/Header';
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/project" element={<ProjectPage />} />
@@ -17,7 +17,7 @@ export default function App() {
         <Route path="/myiso" element={<MyIsoPage />} />
         <Route path="/windowsiso" element={<WindowsIsoPage />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
